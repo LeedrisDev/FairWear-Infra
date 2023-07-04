@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  brand-and-product-db
+  namespace: fairwear
+spec:
+  selector:
+    app:  brand-and-product-db
+  type:  ClusterIP
+  # ClusterIP means this service can be accessed by any pod in the cluster
+  ports:
+  - name:  http
+    port:  80
+    targetPort: 5432
+    protocol: TCP  # optional protocol
