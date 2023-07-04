@@ -21,11 +21,6 @@ spec:
       - name: brand-and-product-api # Name of the container
         image: docker-registry.leedrisdev.engineer/brand_and_product_api:macos # The image you want to run
         imagePullPolicy: Always # Always pull the image
-        env:
-        - name: PRODUCT_DATA_RETRIEVER_SERVICE_PORT_HTTP
-          value: TODO
-        - name: PRODUCT_DATA_RETRIEVER_SERVICE_HOST
-          value: TODO
         ports:
         # Ports are the ports that your application uses.
         - containerPort: 80 # The port that your application uses
