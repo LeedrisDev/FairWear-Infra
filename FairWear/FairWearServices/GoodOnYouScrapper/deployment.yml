@@ -19,7 +19,7 @@ spec:
       # Containers are the individual pieces of your application that you want
       # to run.
       - name: goodonyou-scrapper # Name of the container
-        image: docker-registry.leedrisdev.engineer/goodonyou_scrapper_api:macos # The image you want to run
+        image: docker-registry.leedrisdev.engineer/goodonyou_scrapper_api:develop-101 # The image you want to run
         ports:
         # Ports are the ports that your application uses.
         - containerPort: 80 # The port that your application uses

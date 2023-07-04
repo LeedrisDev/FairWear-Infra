@@ -19,7 +19,7 @@ spec:
       # Containers are the individual pieces of your application that you want
       # to run.
       - name: product-data-retriever # Name of the container
-        image: docker-registry.leedrisdev.engineer/data_retriever_api:macos # The image you want to run
+        image: docker-registry.leedrisdev.engineer/data_retriever_api:develop-44 # The image you want to run
         imagePullPolicy: Always # Always pull the image
         ports:
         # Ports are the ports that your application uses.

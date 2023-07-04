@@ -19,7 +19,7 @@ spec:
       # Containers are the individual pieces of your application that you want
       # to run.
       - name: brand-and-product-db # Name of the container
-        image: docker-registry.leedrisdev.engineer/brand_and_product_database:macos # The image you want to run
+        image: docker-registry.leedrisdev.engineer/brand_and_product_database:v1.0 # The image you want to run
         env:
         # Environment variables are the variables that your application uses.
         - name: POSTGRES_USER # Name of the environment variable

@@ -19,7 +19,7 @@ spec:
       # Containers are the individual pieces of your application that you want
       # to run.
       - name: fairwear-gateway # Name of the container
-        image: docker-registry.leedrisdev.engineer/gateway_api:macos # The image you want to run
+        image: docker-registry.leedrisdev.engineer/gateway_api:develop-61 # The image you want to run
         imagePullPolicy: Always # Always pull the image
         # resources:
         #   limits:
