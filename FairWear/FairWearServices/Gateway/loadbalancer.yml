@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name:  gateway-loadbalancer
   namespace: fairwear
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-name: "gateway loadbalancer"
 spec:
   selector:
     app:  fairwear-gateway
