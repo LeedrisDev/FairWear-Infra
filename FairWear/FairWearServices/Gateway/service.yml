@@ -1,14 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name:  gateway-loadbalancer
+  name:  gateway
   namespace: fairwear
   annotations:
     service.beta.kubernetes.io/do-loadbalancer-name: "gateway loadbalancer"
 spec:
   selector:
     app:  fairwear-gateway
-  type:  LoadBalancer
+  type:  ClusterIP
+  # ClusterIP means this service can be accessed by any pod in the cluster
   ports:
   - name:  http
     port:  80
+    targetPort: 80
