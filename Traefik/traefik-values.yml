@@ -1,0 +1,42 @@
+additionalArguments:
+# Configure your CertificateResolver here...
+# 
+# HTTP Challenge
+# ---
+# Prod / Staging Example:
+  - --certificatesresolvers.staging.acme.email=tfoenixblondel@gmail.com
+  - --certificatesresolvers.staging.acme.caServer=https://acme-staging-v02.api.letsencrypt.org/directory
+  - --certificatesresolvers.staging.acme.httpChallenge.entryPoint=web
+  - --certificatesresolvers.staging.acme.storage=/data/acme-staging.json # Directory inside the container
+
+  - --certificatesresolvers.production.acme.email=tfoenixblondel@gmail.com
+  - --certificatesresolvers.production.acme.caServer=https://acme-v02.api.letsencrypt.org/directory
+  - --certificatesresolvers.production.acme.httpChallenge.entryPoint=web
+  - --certificatesresolvers.production.acme.storage=/data/acme-production.json # Directory inside the container
+
+logs:
+  general:
+    level: ERROR
+
+ports:
+  web:
+    redirectTo: websecure
+  websecure:
+    tls:
+      enabled: true
+      # (optional) Set a Default CertResolver
+      certResolver: production
+
+# Disable Dashboard
+ingressRoute:
+  dashboard:
+    enabled: false
+
+# Persistent Storage
+persistence:
+  enabled: false
+
+# Set Traefik as your default Ingress Controller, according to Kubernetes 1.19+ changes.
+ingressClass:
+  enabled: true
+  isDefaultClass: true
