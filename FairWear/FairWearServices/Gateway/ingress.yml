@@ -1,29 +1,18 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
 metadata:
   name: gateway
   namespace: fairwear
-  annotations:
-    # (Optional): Annotations for the Ingress Controller
-    # -- ingress class is needed when traefik is not the default
-    # kubernetes.io/ingress.class: traefik
-    # ---
-    # -- entrypoint and tls configurations
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.tls: "true"
-    # ---
-    # -- optional middlewares
-    # traefik.ingress.kubernetes.io/router.middlewares:your-middleware@kubernetescrd
-    # ---
 spec:
-  rules:
-  - host: "fairwear.leedrisdev.com"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: gateway
-            port:
-              number: 80
+  entryPoints:
+    - websecure
+  routes:
+  - kind: Rule
+    match: Host(`fairwear.leedrisdev.com`)
+    services:
+    - kind: Service
+      name: gateway
+      namespace: fairwear
+      port: 80
+  # tls:
+  #   certResolver: production
