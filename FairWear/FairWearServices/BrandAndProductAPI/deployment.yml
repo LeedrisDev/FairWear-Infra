@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       app: brand-and-product-api # Name of your application
-  replicas: 2 # Number of replicas
+  replicas: 5 # Number of replicas
   template:
     metadata:
       labels:
